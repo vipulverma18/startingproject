@@ -30,10 +30,10 @@ import { EXAMPLES } from './data';
    
    <h2>Examples</h2>
    <menu>
-  <TabButton onSelect={()=>{clickHandler("Components")}}>Components</TabButton>
-  <TabButton onSelect={()=>{clickHandler("JSX")}}>JSX</TabButton>
-  <TabButton onSelect={()=>{clickHandler("Props")}}>Props</TabButton>
-  <TabButton onSelect={()=>{clickHandler("State")}}>State</TabButton>
+  <TabButton isSelected={initialSelected==="Components"} onSelect={()=>{clickHandler("Components")}}>Components</TabButton>
+  <TabButton isSelected={initialSelected==="JSX"} onSelect={()=>{clickHandler("JSX")}}>JSX</TabButton>
+  <TabButton isSelected={initialSelected==="Props"} onSelect={()=>{clickHandler("Props")}}>Props</TabButton>
+  <TabButton isSelected={initialSelected==="State"} onSelect={()=>{clickHandler("State")}}>State</TabButton>
    </menu>
    {!initialSelected ? 
     (<p>Please select a topic</p>):(<div id="tab-content">
