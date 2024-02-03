@@ -3,16 +3,14 @@ import Coreconcept from './components/CoreConcept'
 import Header from './components/Header/Header.jsx'
 import { TabButton } from './components/TabButton.jsx';
 import { useState } from 'react';
+import { EXAMPLES } from './data';
 
 
   function App() {
-    const [initialSelected,postSelected]=useState('Please Select a Button');
+    const [initialSelected,postSelected]=useState();
     function clickHandler(clickButton){
-      console.log(initialSelected)
      postSelected(clickButton);
-     
     }
-    
     
   return (
     <div>
@@ -37,8 +35,17 @@ import { useState } from 'react';
   <TabButton onSelect={()=>{clickHandler("Props")}}>Props</TabButton>
   <TabButton onSelect={()=>{clickHandler("State")}}>State</TabButton>
    </menu>
+   {!initialSelected ? 
+    (<p>Please select a topic</p>):(<div id="tab-content">
+    <h3>{EXAMPLES[initialSelected].title}</h3>
+    <p>{EXAMPLES[initialSelected].description}</p>
+    <pre>
+     <code> 
+       {EXAMPLES[initialSelected].code}
+     </code>
+     </pre>
+    </div>)}
    </section>
-   {initialSelected}
       </main> 
     </div>
   );
